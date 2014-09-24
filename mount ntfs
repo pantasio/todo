@@ -1,5 +1,5 @@
 sudo mkdir /media/datashare
-sudo mount -t ntfs-3g /dev/sdc8 /media/datashare
+sudo mount -t ntfs-3g /dev/ssdc8 /media/datashare
 
 
 11:13:23 lehoang@manjaro:~]$ sudo mkdir /media/datashare
