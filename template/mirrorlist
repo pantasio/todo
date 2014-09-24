@@ -1,0 +1,70 @@
+##
+## Arch Linux repository mirrorlist
+## Generated on 2014-09-24
+##
+
+## France
+#Server = http://archlinux.aubrac-medical.fr/$repo/os/$arch
+#Server = http://mirror.archlinux.ikoula.com/archlinux/$repo/os/$arch
+#Server = http://archlinux.vi-di.fr/$repo/os/$arch
+#Server = http://mir.art-software.fr/arch/$repo/os/$arch
+#Server = http://mirror.bpiotrowski.pl/archlinux/$repo/os/$arch
+#Server = http://mir.archlinux.fr/$repo/os/$arch
+#Server = http://arch.nimukaito.net/$repo/os/$arch
+#Server = http://archlinux.mirrors.ovh.net/archlinux/$repo/os/$arch
+#Server = http://archlinux.polymorf.fr/$repo/os/$arch
+#Server = http://arch.tamcore.eu/$repo/os/$arch
+#Server = http://mirror.tyborek.pl/arch/$repo/os/$arch
+
+## Germany
+#Server = http://mirror.23media.de/archlinux/$repo/os/$arch
+#Server = http://archlinux.limun.org/$repo/os/$arch
+#Server = http://artfiles.org/archlinux.org/$repo/os/$arch
+#Server = http://archlinux.cyborg-connect.de/$repo/os/$arch
+#Server = http://ftp.fau.de/archlinux/$repo/os/$arch
+#Server = http://mirror.fluxent.de/archlinux/$repo/os/$arch
+#Server = http://mirror.gnomus.de/$repo/os/$arch
+#Server = http://ftp5.gwdg.de/pub/linux/archlinux/$repo/os/$arch
+#Server = http://mirror.hactar.bz/$repo/os/$arch
+#Server = http://ftp.hawo.stw.uni-erlangen.de/archlinux/$repo/os/$arch
+#Server = http://ftp.hosteurope.de/mirror/ftp.archlinux.org/$repo/os/$arch
+#Server = http://ftp-stud.hs-esslingen.de/pub/Mirrors/archlinux/$repo/os/$arch
+#Server = http://mirror.js-webcoding.de/pub/archlinux/$repo/os/$arch
+#Server = http://mirror.k42.ch/archlinux/$repo/os/$arch
+#Server = http://mirror.de.leaseweb.net/archlinux/$repo/os/$arch
+#Server = http://mirror.metalgamer.eu/archlinux/$repo/os/$arch
+#Server = http://mirror.michael-eckert.net/archlinux/$repo/os/$arch
+#Server = http://archlinux.my-universe.com/$repo/os/$arch
+#Server = http://mirrors.n-ix.net/archlinux/$repo/os/$arch
+#Server = http://mirror.netcologne.de/archlinux/$repo/os/$arch
+#Server = http://ftp.halifax.rwth-aachen.de/archlinux/$repo/os/$arch
+#Server = http://linux.rz.rub.de/archlinux/$repo/os/$arch
+#Server = http://mirror.selfnet.de/archlinux/$repo/os/$arch
+#Server = http://ftp.spline.inf.fu-berlin.de/mirrors/archlinux/$repo/os/$arch
+#Server = http://ftp.tu-chemnitz.de/pub/linux/archlinux/$repo/os/$arch
+#Server = http://ftp.tuxdroid.org/archlinux/$repo/os/$arch
+#Server = http://ftp.uni-bayreuth.de/linux/archlinux/$repo/os/$arch
+#Server = http://ftp.uni-kl.de/pub/linux/archlinux/$repo/os/$arch
+#Server = http://mirror.unitedcolo.de/archlinux/$repo/os/$arch
+
+## Japan
+Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch
+Server = http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch
+
+## Singapore
+#Server = http://download.nus.edu.sg/mirror/arch/$repo/os/$arch
+#Server = http://mirror.nus.edu.sg/archlinux/$repo/os/$arch
+
+## Taiwan (Province of China)
+#Server = http://archlinux.cs.nctu.edu.tw/$repo/os/$arch
+#Server = http://shadow.ind.ntou.edu.tw/archlinux/$repo/os/$arch
+#Server = http://ftp.tku.edu.tw/Linux/ArchLinux/$repo/os/$arch
+#Server = http://ftp.yzu.edu.tw/Linux/archlinux/$repo/os/$arch
+
+## Score: 1.4, Australia
+#Server = http://mirror.aarnet.edu.au/pub/archlinux/$repo/os/$arch
+
+## Viet Nam
+Server = http://f.archlinuxvn.org/archlinux/$repo/os/$arch
+## Score: 4.6, Viet Nam
+Server = http://mirror-fpt-telecom.fpt.net/archlinux/$repo/os/$arch
