@@ -3,6 +3,7 @@ sudo pacman -Sy yaourt
 sudo pacman -Sy pamac
 sudo pacman -Sy make fakeroot youtube-dl vlc
 sudo pacman -Sy manjaro-system-settings
+sudo pacman -S openssh
 
 #accountsservice Lightdm bugFix
 sudo pacman --noconfirm -S accountsservice

@@ -1,1 +1,33 @@
-sudo VBoxManage hostonlyif create
+install virtualbox
+	sudo yaourt -S virtualbox
+		make sure kernel version of you arch ( use archry) and chose 
+
+	fix no host-only 
+		sudo VBoxManage hostonlyif create
+
+Create arch vagrant base box from scrate
+	arch 64 bit
+	hdd 20G
+	ram	512
+	2 network card: NAT and host-only
+
+	install base base-dev
+	pacman -Syu 
+	sudo pacman -S net-tools
+	install openssh
+		pacman -S openssh
+		nano /etc/ssh/ssh_config
+			AllowUsers    vagrant
+		# systemctl start sshd.service
+		# systemctl enable sshd.service
+		some info see https://wiki.archlinux.org/index.php/SSH
+	Install dot file
+		git clone git://github.com/....
+	Install yaourt
+		sudo nano /etc/pacman.conf
+		add this
+			[archlinuxfr]
+			SigLevel = Never
+			Server = http://repo.archlinux.fr/$arch
+		sudo pacman -Sy yaourt
+		
