@@ -1,4 +1,7 @@
-How To Use Zalo on Archlinux
+*How To Use Zalo on Archlinux
 
 A script to convert .deb packages to Arch Linux packages, focused on accuracy. Do not use it to convert packages that already exist on official repositories or can be built from AUR!
 https://github.com/helixarch/debtap/blob/master/debtap
+
+* Hoc python va Haskell
+http://quangchien.wordpress.com/
