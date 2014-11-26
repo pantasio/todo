@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#http://moritzmolch.com/1559
 #I use this script to install all the software I need after a fresh installation of Ubuntu
 
 packages_install='gnome-encfs-manager tagainijisho-dic-de ding anki fonts-kanjistrokeorders mplayer vlc synaptic compizconfig-settings-manager chromium-browser virtualbox wine1.7 conky-all pcmanfm nautilus-open-terminal libappindicator1 mesa-utils samba ssh libpam-smbpass ffmpegthumbnailer openjdk-7-jre ibus-mozc mesa-utils htop dconf-tools gconf-editor gimp nautilus-dropbox liferea unity-tweak-tool'
