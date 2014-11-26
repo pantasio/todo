@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#I use this script to install all the software I need after a fresh installation of Ubuntu
+
+packages_install='gnome-encfs-manager tagainijisho-dic-de ding anki fonts-kanjistrokeorders mplayer vlc synaptic compizconfig-settings-manager chromium-browser virtualbox wine1.7 conky-all pcmanfm nautilus-open-terminal libappindicator1 mesa-utils samba ssh libpam-smbpass ffmpegthumbnailer openjdk-7-jre ibus-mozc mesa-utils htop dconf-tools gconf-editor gimp nautilus-dropbox liferea unity-tweak-tool'
+packages_remove='unity-webapps-common unity-scopes-runner'
+
+sudo add-apt-repository -y ppa:gencfsm
+sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get -y --force-yes remove $packages_remove
+sudo apt -y --force-yes install $packages_install
+sudo apt-get -y --force-yes autoremove && sudo apt-get clean
