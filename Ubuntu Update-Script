@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#This is the script that I use to keep my Ubuntu-machines up-to-date. 
+#The main advantage is that it automatically removes old kernels, which is something that the default graphical update-utility does not. 
+#Also does it clean the cache and removes automatically installed unused packages.
+
+remove_old_kernels() {
+    if test $(find /boot/ -name 'vmlinuz-*' | wc -l) -le 2; then
+        return
+    fi
+
+    installed_kernels=$(find /boot/ -name 'vmlinuz-*' | sort -r)
+    installed_kernels=$(echo $installed_kernels | cut -d ' ' -f 3-)
+
+    remove=""
+    for kernel in $installed_kernels; do
+        version=$(echo $kernel | cut -d '-' -f 2-3)
+        remove="$remove linux-image-$version-generic linux-headers-$version"
+    done
+
+    if test "$remove" != ""; then
+        echo "Removing:"
+        for i in $remove; do
+            echo " * $i"
+        done
+        sudo apt-get -y --force-yes remove $remove
+    fi
+}
+
+sudo apt update && \
+sudo apt -y --force-yes dist-upgrade && \
+sudo apt-get -y --force-yes autoremove && \
+sudo apt-get clean && \
+remove_old_kernels
