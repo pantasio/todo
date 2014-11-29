@@ -1,0 +1,2 @@
+###backup 1 file, replace some word 
+sudo sed -i.bak -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
