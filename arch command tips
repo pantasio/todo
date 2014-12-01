@@ -1,0 +1,3 @@
+install downloaded package
+sudo pacman -U ~/downloads/wine-git-1.7.18.r0.ge8cfb0e-1-x86_64.pkg.tar.gz
+
