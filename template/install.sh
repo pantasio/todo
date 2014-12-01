@@ -9,3 +9,7 @@ sudo pacman -Sy nfs-utils
 #Install rsync
 sudo pacman -Sy rsync
 sudo pacman -Sy vagrant
+# backup and copy mirrorlist form repo
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+sudo cp ./mirrorlist /etc/pacman.d/mirrorlist
+ 
