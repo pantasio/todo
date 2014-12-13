@@ -1,0 +1,47 @@
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "ubuntu-14.04"
+  config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+
+  config.vm.network :forwarded_port, guest: 80, host: 8888
+
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "lighttpd-trusty"
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
+  end
+
+  config.vm.synced_folder "log/lighttpd", "/var/log/lighttpd", owner: "www-data", group: "www-data", create: true
+
+  config.vm.provision "shell", inline: <<-shell
+    apt-get update
+    apt-get upgrade -y --force-yes
+
+    apt-get install screen vim -y --force-yes
+
+    apt-get install lighttpd php5-cgi -y --force-yes
+    apt-get install php5-curl php5-gd php5-ldap php5-tidy php5-xmlrpc php5-memcached php5-imap  php5-mcrypt php5-json php5-mysql -y --force-yes
+
+    lighty-enable-mod fastcgi
+    lighty-enable-mod fastcgi-php
+
+    if [ ! -f /vagrant/etc ]; then
+      mkdir /vagrant/etc
+      mv /etc/{lighttpd,php5} /vagrant/etc/
+      ln -s /vagrant/etc/* /etc/
+    fi
+
+    if [ ! -f /vagrant/www ]; then
+      mv /var/www /vagrant/
+      ln -s /vagrant/www /var/
+    fi
+
+    service lighttpd force-reload
+
+  shell
+
+end
