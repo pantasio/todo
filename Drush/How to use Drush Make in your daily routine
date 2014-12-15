@@ -1,0 +1,102 @@
+http://www.webomelette.com/how-use-drush-make-your-daily-routine
+
+
+Drush Make is well-known as an advanced tool for Drupal distribution building. But it also can be very useful for those who have never dealt with distributions. One great example is applying patches like a boss.
+
+In this article I’ll show you how I use Drush Make to automate some of my routine tasks and help me to discover great Drupal stuff.
+Drush Make commands
+
+Drush Make includes 2 commands which are already built in Drush itself:
+
+    make — Turns a .makefile into a Drupal codebase.
+    make-generate — Generates a .makefile from the current Drupal site.
+
+Both commands are related to a .makefile — flat text file with Drush Make instructions. You can read more about .makefile syntax here.
+
+But for now, let's go deeper and see Drush Make in action.
+Rebuild your development environment
+
+How often do you install a new and clean Drupal site for development, testing or demonstration purposes? Additionally to Drupal core, developers usually have a predefined list of favorite modules like Administration Menu, Views or something more special. With Drush Make you can automate this process greatly by combining all the projects you need into one file and lettting Drush Make build it for you.
+
+Here is an example .makefile for a multilingual testing site:
+
+; Drush Make API version.
+api = 2
+; Drupal core.
+core = 7.x
+
+;Common modules.
+projects[admin_menu][subdir] = "contrib"
+projects[ctools][subdir] = "contrib"
+projects[token][subdir] = "contrib"
+projects[views][subdir] = "contrib"
+
+; Development modules.
+projects[devel][subdir] = "development"
+
+; Multilingual modules.
+projects[fallback_language_negotation][subdir] = "contrib"
+projects[variable][subdir] = "contrib"
+projects[i18n][subdir] = "contrib"
+projects[i18nviews][subdir] = "contrib"
+
+; Load some translations.
+translations[] = de
+translations[] = ru
+
+This file can be saved locally (in ~/.drush/make-files/d7_i18n.make for example) or hosted on a remote server like GitHub.
+
+To use it, let’s run the make command to prepare our custom build on our server (in /var/www/drupal_test.local for example):
+
+$ drush make d7_i18n.make /var/www/drupal_test.local
+
+The first run can be quite long, but the next time Drush will take most of projects from its cache.
+
+As a result, the latest Drupal core, contrib modules and translations from the .makefile will be downloaded and placed in appropriate folders. Now you can go to your site's URL and run the install.php or run the installation process directly with Drush:
+
+$ drush si --db-url="mysql://user:password@localhost/databasename" --site-name="Drupal Multilingual"
+
+Additionally, you can also generate a tarball from the .makefile with --tar option:
+
+$ drush make d7_i18n.make drupal_multilingual --tar
+
+Add to that a couple of features (based on Features module) and you’ll end up with your own distro.
+Download dependencies
+
+Have you ever noticed that some contrib modules provide .make or .make.example file? These usually contain a list of specific external libraries (like the jQuery Colorbox plugin for the Colorbox module). These file can be built inside existing Drupal codebases using the --no-core flag. As an example, let’s say you want to download the Chosen module:
+
+$ drush dl chosen
+Project chosen (7.x-2.0-beta4) downloaded to sites/all/modules/contrib/chosen.
+
+$ drush make sites/all/modules/contrib/chosen/chosen.make.example --no-core
+chosen downloaded from https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip
+
+In this case, the proper jQuery plugin was downloaded and unzipped into the proper directory inside the libraries/ folder. Isn’t that handy?
+
+Module developers, please, add a .make.example file into your Drupal.org projects if you are using any external libraries. Instead of building custom Drush commands like chosen-plugin, we can use Drush Make. Just compare 117 lines to 7.
+Generate makefile from existing site
+
+You can easily share a custom Drupal build with Drush Make. First run generate-makefile command from Drupal root to generate a skeleton:
+
+$ drush generate-makefile drupal_custom_build.make
+
+The generated file drupal_custom_build.make will contain instructions for all enabled projects with specific versions. If a project has .git folder, Drush Make will automatically set appropriate properties:
+
+projects[redirect][type] = "module"
+projects[redirect][download][type] = "git"
+projects[redirect][download][url] = "http://git.drupal.org/project/redirect.git"
+projects[redirect][download][branch] = "7.x-1.x"
+projects[redirect][download][revision] = "0b7b8dc2d58cb277874d87c91c45f0a361e148f7"
+
+This file still needs a quick manual review. For example, you can add patch references. In my project, 2 patches are applied to the Redirect module:
+
+projects[redirect][patch][] = "https://drupal.org/files/issues/redirect-global-905914-145.patch"
+projects[redirect][patch][] = "https://drupal.org/files/issues/redirect.circular-loops.1796596-146.patch"
+
+The resulting .makefile may be very useful if you want to share your working environment with a colleague or to provide definitive info for troubleshooting.
+Bonus! Explore Drupal world!
+
+Finally, the Drush Make file itself is a good read for discovering new cool contrib projects. Check out well-tested Commerce Kickstart or OpenScholar .makefiles with plenty of interesting projects inside.
+
+I hope this article will help you use Drush more widely, to automate some of your tasks or to even build your first distribution!
+- See more at: http://www.webomelette.com/how-use-drush-make-your-daily-routine#sthash.amqwA8AD.dpuf
