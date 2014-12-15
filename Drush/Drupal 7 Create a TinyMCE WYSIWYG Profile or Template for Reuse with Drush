@@ -1,0 +1,26 @@
+Don't you get tired of clicking all those checkboxes each time you set up a WYSIWYG editor in a new Drupal site? This post will show you how to define a set of defaults using Drush.
+
+Note: I state TinyMCE, which is my editor of choice (at the moment), but this method should work for any editor.
+
+First you'll need to install the wysiwyg module along with the editor library and any other modules that provide buttons or plugins you would like enabled in your template, but do not enable any buttons or plugins yet. You should have a fully working, default set up before proceeding to the next step.
+
+Next you'll need to make a snapshot of your database. The command I use is:
+mysqldump --skip-extended-insert --default-character-set=utf8 -u [user] -p[password] [database] > [filename]
+
+Once you have the snapshot, go into the desired editor profile and enable all the buttons and plugins you'd like enabled in your template and save. Don't make any other changes.
+
+Now create a second snapshot of your database using the command from above and then run the following command (substituting the file names of your two snapshots): diff snap1.sql snap2.sql
+
+You may have to scroll through a lot of cache-related lines but in the diff output you should find a few lines beginning with something like: INSERT INTO wysiwyg VALUES ('filtered_html',...
+
+These are the lines you need to add to your drush script as follows (shortened to fit):
+
+#!/bin/bash
+echo "
+TRUNCATE wysiwyg;
+INSERT INTO wysiwyg VALUES ('full_html','',NULL);
+INSERT INTO wysiwyg VALUES ('plain_text','',NULL);
+INSERT INTO wysiwyg VALUES ('filtered_html','tinymce','a:20:{s:7:"default";i:1;s:11:"user_choose"; ... ;}');
+" | $(drush sql-connect)
+
+On your next site build, just run this shell script after installing the library and modules and you'll have your set of buttons and plugins enabled in one easy step.
