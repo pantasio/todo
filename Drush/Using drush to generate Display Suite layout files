@@ -1,0 +1,4 @@
+bash
+
+    cd your/theme/folder/ds_layouts
+    drush ds-build "Example layout" --regions="Header, Left, Right, Footer" --css
