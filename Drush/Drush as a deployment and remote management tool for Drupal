@@ -1,0 +1,234 @@
+http://www.qed42.com/blog/drush-deployment-and-remote-management-tool-drupal
+
+
+
+
+
+For those who haven't heard about drush before, i would recommend going through these videos before. For those who know about Drush, have you ever imagined how easy life would become if you could manage your staging sites without having to login to the server. Or , how awesome would it be to deploy changes to various instances i.e., dev/staging/production just using drush the right way!! I have been using drush to do all this since last 2 years. 
+
+The two things that need to be moved from our local instance to other instances for a basic Drupal deployment are: Files folder and db dump. Drush acts as a messiah over here and provides us with two very useful commands drush rsync and drush sql-sync. In order to use these commands, we need to create drush aliases for different sites we working on. Location for these aliases should be typically inside ~/.drush folder. I have written a handy script which converts a  template file into a drush alias files depending on the values entered by the end user. You can modify the script as per your need. 
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+	
+#!/bin/sh
+echo "Webroot path on dev instance:"
+read webroot_dev
+echo "Webroot path on local instance:"
+read webroot_local
+echo "Drush alias for dev:"
+read alias_dev
+echo "Drush alias for local:"
+read alias_local
+echo "Dev db dump directory:"
+read dump_dir_dev
+echo "Local db dump directory:"
+read dump_dir_local
+echo "Uri for dev instance:"
+read uri_dev
+echo "Uri for local instance:"
+read uri_local
+echo "Hostname for dev instance:"
+read host_dev
+echo "Username for dev instance ssh:"
+read user_dev
+echo 'Drush Alias filename'
+read filename
+ 
+sed -e "s;%WEBROOT_DEV%;$1webroot_dev;" -e "s;%ALIAS_DEV%;$alias_dev;" -e "s;%URI_DEV%;$uri_dev;" -e "s;%USER_DEV%;$user_dev;" -e "s;%HOST_DEV%;$host_dev;" -e "s;%DUMP_DIR_DEV%;$dump_dir_dev;" -e "s;%WEBROOT_LOCAL%;$webroot_local;" -e "s;%ALIAS_LOCAL%;$alias_local;" -e "s;%URI_LOCAL%;$uri_local;" -e "s;%DUMP_DIR_LOCAL%;$dump_dir_local;" ~/.drush/template.aliases.drushrc.php > ~/.drush/$filename
+echo $filename" Created successfully in "$HOME"/.drush/"
+
+This scipt looks out for the template file at ~/.drush. So, place the template file inside ~/.drush directory. 
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+	
+<!--?php
+$dev_root = '%WEBROOT_DEV%';
+$aliases['%ALIAS_DEV%'] = array (
+  'uri' =--> '%URI_DEV%',
+  'root' => $dev_root,
+  'remote-user' => '%USER_DEV%',
+  'remote-host' => '%HOST_DEV%',
+  'path-aliases' => array(
+    '%dump-dir' => '%DUMP_DIR_DEV%',
+    '%files' => $dev_root . '/sites/default/files'
+  ),
+  'source-command-specific' => array (
+    'sql-sync' => array (
+      'no-cache' => TRUE,
+      'structure-tables-key' => 'common',
+    ),
+  ),
+  // No need to modify the following settings
+  'command-specific' => array (
+    'sql-sync' => array (
+      'sanitize' => TRUE,
+      'no-ordered-dump' => TRUE,
+      'structure-tables' => array(
+       // You can add more tables which contain data to be ignored by the database dump
+        'common' => array('cache', 'cache_filter', 'cache_menu', 'cache_page', 'history', 'sessions', 'watchdog'),
+      ),
+    ),
+  ),
+);
+ 
+$local_root = '%WEBROOT_LOCAL%';
+$aliases['%ALIAS_LOCAL%'] = array(
+  'root' => $local_root,
+  'uri'  => '%URI_LOCAL%',
+  'path-aliases' => array(
+    '%dump-dir' => '%DUMP_DIR_LOCAL%',
+    '%files' => $local_root . '/sites/default/files'
+  ),
+);
+?>
+
+Lets understand the terminologies mentioned in the above template file one by one.
+
+%ALIAS_DEV: Alias name which you would like to keep for your dev instance. This is something which will be used as a reference to the dev site while using drush command to execute something there.
+
+uri: The uri of the dev instance. Should be something like dev.example.com. 
+
+remote-user: A valid user on the machine where the dev instance is hosted. Also, we need to make sure this user has the permission to execute drush commands on that machine.
+
+remote-host: IP address/hostname for the machine. This is used by drush to connect to the dev machine while executing the commands there.
+path-aliases: Directory paths which we want to be accessible using drush commands. %dump-dir would be used to store the db dumps temporarily when syncing databases. %files would be used to sync the files folder.
+ 
+command-specific: drush commands comes with a lot of options. This configuration allows us to set some of the options that would automatically get applied when the specified command is fired for drush alias. e.g., in the template file defined above, we have sql-sync with sanitize set to true. Sanitize option would skip syncing users while importing databases. So, it would work in any of the examples below:
+?
+1
+2
+	
+drush sql-sync @dev @local
+drush sql-sync @local @dev
+
+source-command-specific/target-command-specific: Same as command-specific. But gets triggered only if the alias is a source/target argument respectively.
+
+P.S: Executing these commands on a remote server would require ssh access to the machine. So, drush while executing them, would ask you for the passwords every now and then. To avoid this, we can make set our public key as one of the authorized keys for the dev server.
+
+Confused? Don't worry, its not as complicated as it sounds. Just follow the following steps and you should be done with it:
+
+Copy your ssh key to the server 
+?
+1
+	
+scp ~/.ssh/id_rsa.pub user@dev.example.com:~/piyuesh23.pub
+
+Login to the remote machine using ssh
+?
+1
+2
+3
+4
+5
+	
+cd .ssh
+touch authorized_keys
+chmod 600 authorized_keys
+cat ~/piyuesh23.pub authorized_keys
+rm ~/piyuesh23.pub
+
+Voila!! Now your terminal would never dare to ask you for a password while you tryin to login to dev.example.com.
+
+Now since you are setup with ur drush alias, you must be excited to see them in action. So, yeah here is how to use them now:
+
+sql-sync 
+?
+1
+	
+drush sql-sync @dev @local --create-db
+
+This would take a db-dump of dev server,  save it in %dump-dir temporarily. Then copy this to %dump-dir defined for @local instance. By default, it will merge the two databases on the local server. However, passing create-db option forces mysql to overwrite the current database with the dump from dev server.
+
+rsync
+?
+1
+	
+drush rsync @dev @local
+
+Rsync Drupal root from dev to local
+?
+1
+	
+drush rsync ./ @dev:%files/img
+
+Rsync all files in the current directory to the 'img' directory in %files on dev.
+?
+1
+	
+drush rsync @dev:%files @local:%files
+
+Rsync all files in the %files defined on @dev into the %files on local.
+
+Using general Drush commands
+?
+1
+2
+	
+drush en -y <module-name> @dev
+drush cc all @dev</module-name>
+
+Basically any drush command accompanied with a valid drush alias would execute the command on that instance. These can also be used to create automated deployment tools when integrated with git-hooks. Thats all from me folks. Hope you enjoyed exploring usage of drush in these ways.
