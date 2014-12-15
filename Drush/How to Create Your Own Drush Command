@@ -1,0 +1,160 @@
+
+
+Drush is a command line tool built to assist you in working with Drupal from the terminal. It comes by default with a bunch of useful commands, such as downloading, enabling or even updating modules. But modules can define their own commands to have Drush perform operations using their code.
+
+In this article we are going to look at creating a Drush command for a fictitious module that really doesn’t do anything. The purpose is to illustrate what you need to do on the Drush side of things and not have to worry about the actual functionality of the module that defines the command. If you want to follow along, I assume that you already have your own custom module set up. Doesn’t matter what it does.
+
+All the code we write is available in this repository so if you want to follow along or even skip ahead, you can check it out. Each commit represents a different step we take in the tutorial.
+Our module
+
+The demo_drush module functionality we want to expose to Drush will be super simple. It’s a function that sets the Hello world! message:
+
+function demo_drush_print_statement() {
+  drupal_set_message(t('Hello world!'));
+}
+
+It’s not much but it will help us understand how to use Drush to print this statement to the terminal screen, and in doing so, how to configure the command to perform all sorts of powerful operations. We’ll be adjusting it in the course of this tutorial to demonstrate various possibilities.
+The Drush command file
+
+The first thing we need to do is add a new file to our module’s folder with the name ending in .drush.inc. Drush will scan the codebase and pick it up based on this name to load the functions we declare inside.
+
+It is also best practice to name this file after the module you place it in. For our case, this would be demo_drush.drush.inc (my module’s name is demo_drush). And for now, just open php tags (<?php) at the top and save the file.
+Command hook and callback
+
+There are 2 main components in the Drush command architecture: the hook implementation where we define the commands and their configurations, and the callback functions that get triggered by the command. There are of course other functions that get called in the process (such as validation or pre/post callbacks), but we will not cover them in this tutorial.
+
+First, let’s implement hook_drush_command() and define a simple command called drush-demo-command with an alias of ddc:
+
+/**
+ * Implements hook_drush_command().
+ */
+function drush_demo_drush_command() {
+
+  $items['drush-demo-command'] = array(
+    'description' => 'Demonstrate how Drush commands work.',
+    'aliases' => array('ddc'),
+  );
+
+  return $items;
+}
+
+With this hook implementation (henceforth referred to as the hook) we return a new key in the array that will be the full command name. Inside this array, we configure it. For now, we specified a simple description and an alias for the command. So if we run drush help ddc, we get printed to our terminal the description and the alias of the command.
+
+The second part of the Drush command architecture is the callback function. As it is now, Drush expects a function to be declared called drush_drush_demo_command(). This default naming structure starts with drush followed by the name of the command all connected with underscores. So let’s quickly declare it and use it to call the demo_drush_print_statement() function we wrote earlier:
+
+/**
+ * Callback for the drush-demo-command command
+ */
+function drush_drush_demo_command() {
+  demo_drush_print_statement();
+}
+
+Now if you clear the drush cache (drush cc drush), you can run the drush ddc command and you should see Hello world! printed to the screen. Congratulations, your most basic Drush command works.
+
+Although for the rest of the tutorial we will continue with this default naming convention, you are not necessarily restricted to it. If you want to give the callback function another name, you can add a new key to the hook specifying the name:
+
+...
+
+'callback' => 'drush_demo_test'
+
+...
+
+Now you can declare a function called drush_demo_test() and this is the one to get called automatically by this command. For now though, we will stick with our drush_drush_demo_command() name.
+Arguments and options
+
+One of the basic things you can do with Drush commands is pass them arguments and options. The key difference between the two is that the former are mandatory whereas the latter are not. Another distinction is in the way the values are passed to the callback function. Arguments are passed as function parameters (in order) while options are retrieved in the callback using a special helper function (drush_get_option).
+
+So inside the hook for our command, let’s add both the arguments and options information:
+
+...
+
+'arguments' => array(
+  'type' => 'The type of statement (error or success).',
+),
+'options' => array(
+  'repeat' => 'The number of statement repeats.',
+),
+
+...
+
+We declared 1 argument (called type) and one option called repeat. The values should explain their purpose but how they are used is maybe not so obvious. The argument type will be the first string that gets written after the command name in the terminal (drush drush-demo-command or drush ddc). The option will be an integer value that gets assigned to the --repeat flag in the command.
+
+Example:
+
+drush ddc error --repeat=10
+
+This command should make the printed statement an error and have it print 10 times to the terminal screen. Now let’s adjust our code to make this happen.
+
+First, let’s modify the demo_drush_print_statement() function:
+
+function demo_drush_print_statement($type = NULL) {
+  drupal_set_message(t('Hello world!'), $type);
+}   
+
+Now the type of statement printed is dynamic. Second, let’s modify the command callback function and change it to this:
+
+function drush_drush_demo_command($type = FALSE) {
+
+  // Check for correct argument
+  $correct_args = array('error', 'success');
+  if (!in_array($type, $correct_args)) {
+    return drush_set_error(dt('"@type" is not a valid statement type. Please choose between "success" and "error".', array('@type' => $type)));
+  }
+
+  // Option
+  $repeat = drush_get_option('repeat', 1);
+  if ($repeat > 1 && is_numeric($repeat)) {
+    for ($i=0; $i < $repeat; $i++) { 
+      demo_drush_print_statement($type);
+    }
+  }
+  else {
+    demo_drush_print_statement($type);
+  }
+
+}
+
+First, we check whether the argument passed ($type) is one of the 2 accepted types. If not, we return a Drush error. If it is accepted, we continue and check if the repeat option has been passed and if it contains a numeric value higher than 1. If it doesn’t, we call our demo_drush_print_statement() once, but if it does, we do so as many times as the repeat value. In any case, we also pass the $type argument to the function as a parameter.
+
+Now you can go ahead and run the command from the terminal and test out how the argument and option work.
+User input
+
+One thing you’ll notice when running this command is that if we pass something else than the two accepted argument values, it returns the good error. But what if we don’t pass anything at all? It returns a generic Drush error that complains about the missing argument.
+
+Let’s make it so that if a user doesn’t pass an argument, we ask them what argument they’d like to pass and use the value they provide interactively. There is a handy Drush function for this, but the whole implementation could look like this:
+
+// Check for existence of argument
+if (!$type) {
+  $options = array(
+    'success' => dt('Success'),
+    'error' => dt('Error'),
+  );
+  $type = drush_choice($options, dt('What kind of message you\'d like to print?'));
+}
+
+...
+
+This goes to the top of the command callback function before checking whether the correct argument was passed. But what are we doing here?
+
+First, everything happens only if the user has not passed an argument. Second, we create an array of key-value pairs that will represent the choices we give the user. The array keys represent the machine name of the choice while the values, the human readable name. Third, we pass this array along side a question string to the drush_choice() function that will return the machine name of the choice the user makes. And that becomes our new $type variable (the argument).
+
+So now we can try it out. Run the command with no argument and you will be asked to type in a number that corresponds to one of the two available choices. Upon doing that, you should see the statement printed accordingly.
+Examples
+
+As I mentioned before, running the Drush help command for our own command (drush help ddc) will list some useful information about this command (arguments, options, description, aliases, etc). Let’s go back to our hook and add some more information to our command:
+
+...
+
+'examples' => array(
+  'drush ddc error' => 'Prints the statement once with the error flag.',
+  'drush ddc success --repeat=10' => 'Prints the statement 10 times with the success flag.',
+ ),
+
+ ...
+
+We have the keys that represent the example command usage, and the value which describes what will happen if the command was run. Now if we run drush help ddc, we can see these helpful examples of how this command can be used.
+Conclusion
+
+Here is a good place to end this tutorial since we covered a lot of the basic but important aspects of defining our own Drush command. We used a simple example but one that allowed us to illustrate many features of this process: how to define the command information and how to make use of some of that inside of a callback. We looked at arguments, options and even saw how we can get user input from the terminal.
+
+There are of course many more aspects that we could not cover here. They are for more advanced usages but very important and must keep in mind that they exist. For example, you can specify what Drupal bootstrap level Drush needs to have in order to run. You can also specify a module dependency for the command or even what version of core it needs to run. So do check up on these things as well on the Drush API site and in the docs for more information.
