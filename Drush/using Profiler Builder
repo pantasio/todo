@@ -1,0 +1,11 @@
+dush dl profiler_builder
+dush en profiler_builder -y
+
+copy libraris in sites/all/libraries to profiles/<profile name>
+
+
+
+goto http://dev.pantasio.com/admin/config/media/browser 
+config brower de co add media trong wusiwug
+
+config file system
