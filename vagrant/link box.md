@@ -5,3 +5,6 @@ vagrant init hashicorp/precise32
 *ubuntu / trusty32
 https://vagrantcloud.com/ubuntu/boxes/trusty32/versions/14.04/providers/virtualbox.box
 vagrant init ubuntu/trusty32
+
+#ubuntu-trusty-gui
+https://dl.dropboxusercontent.com/u/59491917/ubuntu_trusty_64_GUIvirtualbox.box
