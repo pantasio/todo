@@ -7,4 +7,6 @@ https://vagrantcloud.com/ubuntu/boxes/trusty32/versions/14.04/providers/virtualb
 'vagrant init ubuntu/trusty32'
 
 ###ubuntu-trusty-gui
-https://dl.dropboxusercontent.com/u/59491917/ubuntu_trusty_64_GUIvirtualbox.box
+info: https://vagrantcloud.com/lmayorga1980/boxes/ubuntu-trusty-gui  
+download: https://dl.dropboxusercontent.com/u/59491917/ubuntu_trusty_64_GUIvirtualbox.box  
+
