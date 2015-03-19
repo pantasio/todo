@@ -1,3 +1,6 @@
+Day la file readme.md vi du khi ban muon lam tai lieu tren github 
+
+
 *hashicorp / precise32
 https://vagrantcloud.com/hashicorp/boxes/precise32/versions/1.0.0/providers/virtualbox.box
 vagrant init hashicorp/precise32
