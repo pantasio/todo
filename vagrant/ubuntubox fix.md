@@ -49,7 +49,12 @@ E: Some index files failed to download. They have been ignored, or old ones used
 thay sources.list
 
 
+#Error
+W:There is no public key available for the following key IDs: 3B4FE6ACC0B21F32,
+W:There is no public key available for the following key IDs: 3B4FE6ACC0B21F32,
 
 
 
+#Fix
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3B4FE6ACC0B21F32
 
