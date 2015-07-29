@@ -1,11 +1,33 @@
 1. Download and install the most recent VirtualBox for Windows from https://www.virtualbox.org/wiki/Downloads
 2. Download and install the latest version of Vagrant from http://downloads.vagrantup.com. Windows users, download Vagrant.msi
-3. So all I did was right-click on "My Computer"-->Properties-->Advanced System Settings-->Environment Variables. Here I scrolled down to find "VBOX_MSI_INSTALL_PATH" and I changed it to "VBOX_INSTALL_PATH."
-4. Run cmd as administrator
+
+NOTE: 
+version 1.0 29/7/2015
+WIN 7 ultimate 32bit
+Virtuallbox 4.3.6
+Vagrant 1.7.2
+
+3. (update NO NEED) So all I did was right-click on "My Computer"-->Properties-->Advanced System Settings-->Environment Variables. Here I scrolled down to find "VBOX_MSI_INSTALL_PATH" and I changed it to "VBOX_INSTALL_PATH." 
+
+4. (update NO NEED) Run cmd as administrator
+
 5. http://rubyinstaller.org/downloads/
 6. http://railsinstaller.org/en
 7. https://downloads.getchef.com/chef-dk/windows/
 
+8. Add hostonly adapter network 2  
+    IP4v   192.168.33.10/24  ----> card tren win
+    DHCP server
+        server add 192.168.33.1/24
+        lower 192.168.33.5
+        upper 192.168.33.10
+
+9. Vagrantfile 
+    config.vm.network "private_network", ip: "192.168.33.15"    #### Fai khác card trên win
+Nếu sai thì dùng lệnh để sữa:
+    ifconfig eth1 192.168.33.15 netmask 255.255.255.0 up
+
+10. thay đổi file sources.list
 
 Fail to run this stack
 https://github.com/MiniCodeMonkey/Vagrant-LAMP-Stack
