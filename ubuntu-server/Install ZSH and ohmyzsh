@@ -1,0 +1,4 @@
+sudo apt-get install zsh
+//Make sure you install git and next
+sudo curl -L http://install.ohmyz.sh | sh
+sudo chsh -s $(which zsh) $(whoami)
