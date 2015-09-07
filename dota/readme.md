@@ -1,4 +1,14 @@
 //-novid -console +exec autoexec.cfg  
+// Music for dota   
+// https://soundcloud.com/linh-b-m/sets/stream-onl  
+// https://www.youtube.com/playlist?list=PLf-wvAnDqhld6pQRYHsNl1B9S_rehC4GO
+//  
+// Change this for monitor   
+// 1900x1080  
+net_graphinsetleft "-50"  
+net_graphinsetbottom "435"  
+
+
 rate "80000"  
 cl_updaterate "30"   
 cl_cmdrate "30"  
@@ -16,12 +26,16 @@ retry
 volume "0.7"  
 snd_musicvolume "0" 
 
-net_graphinsetleft "-50"  
-net_graphinsetbottom "435"  
+
+
+
+net_graphheight "56" // Netgraph settings, net_graph 1 enables in game with console
+net_graphinsetleft "0"
+net_graphinsetright "-163"
+
 net_graphpos "1"  
 net_graphproportionalfont "0"  
-
-
+net_graphtext "1"  
 
 dota_force_right_click_attack "1"  
 dota_player_units_auto_attack "1"  
@@ -73,3 +87,8 @@ cl_showfps "1"
  
 dota_minimap_always_draw_hero_icons "1"
 dota_minimap_show_hero_icon "1"
+
+// thong bao  
+bind "p" "say_team miss top"  
+bind "l" "say_team miss mid"  
+bind "," "say_team miss bot"  
