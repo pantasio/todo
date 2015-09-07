@@ -13,11 +13,11 @@ con_enable "1"
 fps_max "120"  
 cl_showfps "1"  
 retry  
-volume "0.5"  
+volume "0.7"  
 snd_musicvolume "0" 
 
 net_graphinsetleft "-50"  
-net_graphinsetbottom "300"  
+net_graphinsetbottom "435"  
 net_graphpos "1"  
 net_graphproportionalfont "0"  
 
@@ -70,4 +70,6 @@ dota_range_display "1200"
 dota_disable_range_finder "0" 
 net_graph "1"  
 cl_showfps "1"  
-fps_max "120"  
+ 
+dota_minimap_always_draw_hero_icons "1"
+dota_minimap_show_hero_icon "1"
