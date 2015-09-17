@@ -1,0 +1,8 @@
+sudo apt-get purge i915-3.15-3.13-dkms  
+sudo apt-get install --reinstall xserver-xorg-video-intel libgl1-mesa-glx libgl1-mesa-dri xserver-xorg-core  
+sudo dpkg-reconfigure xserver-xorg  
+sudo apt-get install --reinstall nvidia-340  
+sudo dpkg-reconfigure bbswitch-dkms  
+sudo ldconfig -n  
+sudo update-initramfs -u  
+sudo reboot  
