@@ -3,15 +3,17 @@
 3. Install Git bash https://git-scm.com/downloads
 
 NOTE: 
-###version 1.1 15/11/2015
-WIN 7 ultimate 32bit
-Virtuallbox 4.3.12
-Vagrant 1.7.4
+#####version 1.1  
+date 15/11/2015  
+WIN 7 ultimate 32bit  
+Virtuallbox 4.3.12  
+Vagrant 1.7.4  
 
-###version 1.0 29/7/2015
-WIN 7 ultimate 32bit
-Virtuallbox 4.3.6
-Vagrant 1.7.2
+#####version 1.0 
+date 29/7/2015  
+WIN 7 ultimate 32bit  
+Virtuallbox 4.3.6  
+Vagrant 1.7.2  
 
 
 3. (update NO NEED) So all I did was right-click on "My Computer"-->Properties-->Advanced System Settings-->Environment Variables. Here I scrolled down to find "VBOX_MSI_INSTALL_PATH" and I changed it to "VBOX_INSTALL_PATH." 
