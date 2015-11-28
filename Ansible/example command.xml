@@ -1,0 +1,122 @@
+example
+#######
+
+'''bash
+ansible all -i step-00/hosts -m debug --args "msg='Hello Ansible'"
+'''
+
+example
+#######
+
+'''bash
+ansible all -m ping -s -k -u vagrant
+'''
+
+Let's cover these commands:
+
+    all - Use all defined servers from the inventory file
+    -m ping - Use the "ping" module, which simply runs the ping command and returns the results
+    -s - Use "sudo" to run the commands
+    -k - Ask for a password rather than use key-based authentication
+    -u vagrant - Log into servers using user vagrant
+
+example
+#######
+'''bash
+ansible -i step-02/hosts -m shell -a 'uname -a' host0.example.org
+'''
+
+example
+#######
+
+copy all file in folder
+'''bash
+ansible -i step-02/hosts -m copy -a 'src=~/tmp/ dest=/tmp/' host0.example.org
+'''
+
+example
+#######
+
+'''bash
+ansible -i step-02/hosts -m shell -a 'grep DISTRIB_RELEASE /etc/lsb-release' all
+'''
+
+example
+#######
+
+Dua ra rat nhieu thong tin cua 1 host:
+'''bash
+ansible -i step-02/hosts -m setup host0.example.org
+'''
+
+example
+#######
+
+Loc thong tin ansible_memtotal_mb cua tat ca cac host:
+'''bash
+ansible -i step-02/hosts -m setup -a 'filter=ansible_memtotal_mb' all
+'''
+
+example
+#######
+'''bash
+ansible -i step-07/hosts -m service -a 'name=apache2 state=restarted' host1.example.org
+'''
+
+example
+#######
+
+Remember -l is a switch that limits the playbook run on specific hosts.
+'''bash
+ansible-playbook -i step-08/hosts -l host1.example.org step-08/apache.yml 
+'''
+
+example
+#######
+
+Play multi playbook:
+'''bash
+ansible-playbook -i step-10/hosts step-10/apache.yml step-10/haproxy.yml
+'''
+
+
+Fix Error
+#######
+
+Sau khi dung lenh vagrant destroy host0	thi known_hosts sau cua IP host0 nen tai fai
+xoa ip host0 va cai lai sshkey cho host0. Ap dung co server bi loi va cai lai
+
+'''bash 
+ssh-keygen -f "/home/pantasio/.ssh/known_hosts" -R 192.168.33.10
+ansible-playbook -c paramiko -i step-00/hosts step-00/setup.yml --ask-pass --sudo
+'''bash
+
+
+
+cat ~/.ssh/id_rsa.pub | ssh root@192.168.33.10 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
+
+
+
+
+
+
+
+
+key vagrant
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJdJaTnpufEpekOW+6eTxh4BtSEpgNiy1xWdCumemcYDCMXmEm9ijWSr+6ZgZvNKgTY7V6NjLKrirsbDyxIQ2pog9ceu4qOb2cPxY12NcUFNCY8vAoRl4F6oyt1ElSRpshgEoTTmdV4o4EHhkANs3KOMeVNbw9yaKrijKy6y3scIvYhLEDUhaNCVLGg+8PqcZ6P2UfwTzvJM22IBaD1o8/atKmL/DHQJ7+8PxGIcy5wyWRKcCDzfZ3DfuV43OPVL4U8lBMF2Vj6MjTD/1l2187Eudm85L+5cBDXIV4Z5w7gCcA2RkojEVANXm1+1caaYxxRlCJVcLSy8lJLtF9Gk63 vagrant
+
+key root
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7DkLtt/6ZTQE2cvjDAd2ix3GX7fGwfujTQuC4CuSZrT7DEW6D7HzsIwNEfc85eQDW5SMf6uX8rcLFiH7OKEbcJBqXnmgdIhwBVkd/K8OAQR7DiDMg4o5cSJ0dfmKplAPT78HZDRempT83g41B4RwxhFUjhb1ZdLexlbbFNxKySIL1chGTiuSD9bD91W1Ys7gXbr1BdnF//v7HGVl7M234dMuDY9JE7qkElbe3gweN1WO32phbXQD9HShWtVCAiE1XPsR6DRt01AsY8a9AQnYEZAYOVUpTw/k9/KerS0aEWoD9qnAG81o/u+Y00ivHqR985tXXeHCpMyabAtRo5Y+Lv96yxURynMRFe/WLqxfbWFSjHutePxy85hsCpr+Ictge+jEg2R4jprjblebYhbxFi6Amm03FdrtPdzLmrqgwNxFDkliR2VlnMh4Vc/u5LszW94QEwG/B49mFUgE5YcTY7rZ2oJY1iSRrpB/jMxIAkWAs54tdJPUOLDV/yPJVyml275KkQLvA29c77teDLQ/ii5I5P77+VtwuVambkYRirBoHDKDlq+g665TEiRV/f5eoYhkVowRRgtwZEHpaGsdyuBCc4OQogHPVkWdYrHDTihJPjty4V29ZxpGnIWNimiBqQhrIinVyJEhY6wiQhl12UyxGY4TPRrZEhPkbLq0SSw== devopsviet@gmail.com
+
+
+host0
+vagrant key
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRQ0u9BHFknWgkK3xrJPpL6cVOxaJ9kKXGZCWug8ZSuL3Z41Zs07YxrUD+ECcLpNi2B+t4EjcXE4ZM5SkuRk3FkoSH+jzozES/oKcMOsngCcG1zs/RqK/7rfPz936FGLFl64E8t2mDpiBRfAcotKs9yAXPp/FStrNjtT2uQzwrU1Wn0Yd1vdlQDUofTxqEpnf22nDXC6nnH5cIBDUjVe6KP6d/48A7geZtXZQmy+KnsdCG6UMTwNZKil6b4cQQSxXeyXJ6fBMzloTbSMEmAAFBxLZKkKSSC8RIgsqmORlqIbBAc8Zsv4tvKZGzzNm1ay6cUhOzBOtjmtvgWe/75xpp vagrant
+
+
+
+
+
+
+
+
