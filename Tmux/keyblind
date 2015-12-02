@@ -1,0 +1,74 @@
+read this https://danielmiessler.com/study/tmux/
+see video demo https://www.youtube.com/watch?v=BHhA_ZKjyxo
+
+Ctrl+b <command>
+
+<command>
+[phan window}
+
+		Ctrl+b c        									New window
+		Ctrl+b , {dau phay}								Dat ten window
+		Ctrl+b l 													go to last-active window 
+		Ctrl+b p      										chuyen toi cua so trc
+		Ctrl+b n  												chuyen toi cua so sau
+		Ctrl+b w 													List window
+		Ctrl+d 														exit current shell/window 	
+		Ctrl-b & 													Kill the current window
+		Ctrl-b window number 							(Move to the specified window number,the default bindings are from 0 -- 9)
+
+[panel]
+		Ctrl+b %													dua panel theo chieu ngang
+		Ctrl+b : split-window     				dua panel theo chieu doc
+		Ctrl+b "													dua panel theo chieu doc	
+		Ctrl-b q 													Show pane numbers (used to switch between panes)
+		Ctrl-b o 													Switch to the next pane
+		Ctrl-b ? 													List all keybindings
+		Ctrl-b { 													(Move the current pane left)
+		Ctrl-b } 													(Move the current pane right)
+
+[new session]
+		tmux new -s session-name					start a new session with Name
+		Ctrl+b d 													detach from currently attached session 
+		tmux ls 													List session
+		tmux attach -t session-name				re-attach a detached session 
+		tmux kill-session -t session-name
+
+# add to ~/.tmux.conf
+bind | split-window -h
+bind - split-window -v
+
+# Make a pane its own window
+Ctrl-b : "break-pane"
+
+
+ps aux | grep htop     					check session dang chay
+
+
+
+
+See all tmux & screen cheat-sheet
+http://www.dayid.org/comp/tm.html
+#################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

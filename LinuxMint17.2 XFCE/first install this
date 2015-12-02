@@ -1,0 +1,45 @@
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo add-apt-repository ppa:indicator-multiload/stable-daily
+sudo add-apt-repository ppa:freyja-dev/unity-tweak-tool-daily
+sudo add-apt-repository ppa:noobslab/icons
+sudo add-apt-repository ppa:ravefinity-project/ppa
+sudo add-apt-repository ppa:noobslab/apps
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+
+
+sudo apt-get update
+
+
+
+
+
+sudo apt-get install simplescreenrecorder
+sudo apt-get install indicator-multiload
+sudo apt-get install unity-tweak-tool
+sudo apt-get install ultra-flat-icons ultra-flat-icons-green ultra-flat-icons-orange
+sudo apt-get install vivacious-colors
+sudo apt-get install xdman
+sudo apt-get install tmux
+sudo apt-get install sublime-text-installer	
+
+
+
+sử dụng tiếng việt 
+
+
+U install:
+simplescreenrecorder
+Multi-Load Indicator 	http://www.noobslab.com/2014/08/useful-panel-indicators-collection-for.html
+Unity Tweak Tool
+
+
+
+
+
+
+
+http://ubuntuhandbook.org/index.php/2015/11/flatabulous-flat-theme-ubuntu/
+
+
+
+
