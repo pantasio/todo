@@ -1,0 +1,27 @@
+$	zip --password mypassword tecmint.zip file-name 1.txt file-name 2.sh file-name 1.js  
+
+$	unzip tecmint.zip
+
+
+7-zip
+
+Install:
+$	sudo apt-get install p7zip-full
+
+Usage:
+Compress files into zip using 7-zip and encrypt it
+$	7za a -tzip -p -mem=AES256 tecmint.zip file-name 1.txt file-name 2.sh file-name 1.js
+enter password
+
+Decompress encrypted zip file using 7-zip.
+$	7za e tecmint.zip
+
+
+
+
+
+
+
+
+
+

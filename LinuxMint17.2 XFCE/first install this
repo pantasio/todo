@@ -1,30 +1,43 @@
-sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
-sudo add-apt-repository ppa:indicator-multiload/stable-daily
-sudo add-apt-repository ppa:freyja-dev/unity-tweak-tool-daily
-sudo add-apt-repository ppa:noobslab/icons
-sudo add-apt-repository ppa:ravefinity-project/ppa
-sudo add-apt-repository ppa:noobslab/apps
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
+$ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+$ sudo add-apt-repository ppa:indicator-multiload/stable-daily
+$ sudo add-apt-repository ppa:noobslab/icons
+$ sudo add-apt-repository ppa:ravefinity-project/ppa
+$ sudo add-apt-repository ppa:noobslab/apps
+$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
+$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+$ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'	
+$ sudo apt-add-repository ppa:ansible/ansible
+
+$ sudo apt-get update
 
 
 
-sudo apt-get update
+
+$ sudo apt-get install software-properties-common
+$ sudo apt-get install simplescreenrecorder
+$ sudo apt-get install indicator-multiload
+$ sudo apt-get install ultra-flat-icons ultra-flat-icons-green ultra-flat-icons-orange
+$ sudo apt-get install vivacious-colors
+$ sudo apt-get install xdman
+$ sudo apt-get install tmux
+$ sudo apt-get install sublime-text-installer	
+$ sudo apt-get install ibus
+$ sudo apt-get install ibus-unikey
+$ sudo apt-get install google-chrome-stable
+$ sudo apt-get install virtualbox virtualbox-dkms vagrant virtualbox-qt
+$ sudo apt-get install aria2
 
 
 
 
 
-sudo apt-get install simplescreenrecorder
-sudo apt-get install indicator-multiload
-sudo apt-get install unity-tweak-tool
-sudo apt-get install ultra-flat-icons ultra-flat-icons-green ultra-flat-icons-orange
-sudo apt-get install vivacious-colors
-sudo apt-get install xdman
-sudo apt-get install tmux
-sudo apt-get install sublime-text-installer	
-sudo apt-get install ibus
-sudo apt-get install ibus-unikey
+Which means we need to download DEB packages. Let's start with Vagrant. Also we need to download the corresponding checksum file as well. I'm using Aria2 instead of Wget to speed up downloading as Aria2 supports multiple simultaneous connections.
+$ aria2c -x 4 https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+$ wget --content-disposition https://dl.bintray.com/mitchellh/vagrant/1.7.4_SHA256SUMS?direct
 
+Before we install or upgrade Vagrant, verify the our downloaded DEB package against the checksum file. Remember to read the Changelog as well, just in case, if there are any important items relevant to our upgrade or installation.
+$ sha256sum -c 1.7.4_SHA256SUMS 2>&1 | grep OK                                                                                          
+vagrant_1.7.4_x86_64.deb: OK
 
 sử dụng tiếng việt 
 http://toantinit.blogspot.com/2015/08/cach-cai-ibus-unikey-tren-linux-mint-172.html
