@@ -1,0 +1,12 @@
+Never use your computer as root.
+stick whatever in /etc/rc.local and it will run after all system daemons have started.
+It's the fast and easy method and perfectly ok to do.
+
+Cron is another way to run still 'as root'
+
+make backups /etc/rc.local before edit.
+
+thêm dòng code sau vào 
+~/autorun/file-name.sh
+
+

@@ -7,6 +7,7 @@ sudo add-apt-repository ppa:noobslab/apps
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 
 
+
 sudo apt-get update
 
 
@@ -21,11 +22,12 @@ sudo apt-get install vivacious-colors
 sudo apt-get install xdman
 sudo apt-get install tmux
 sudo apt-get install sublime-text-installer	
-
+sudo apt-get install ibus
+sudo apt-get install ibus-unikey
 
 
 sử dụng tiếng việt 
-
+http://toantinit.blogspot.com/2015/08/cach-cai-ibus-unikey-tren-linux-mint-172.html
 
 U install:
 simplescreenrecorder
