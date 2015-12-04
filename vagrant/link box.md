@@ -10,3 +10,6 @@ https://vagrantcloud.com/ubuntu/boxes/trusty32/versions/14.04/providers/virtualb
 info: https://vagrantcloud.com/lmayorga1980/boxes/ubuntu-trusty-gui  
 download: https://dl.dropboxusercontent.com/u/59491917/ubuntu_trusty_64_GUIvirtualbox.box  
 
+### Ansible / tower
+http://vms.ansible.com/ansible-tower-2.4.1-virtualbox.box
+$ vagrant init tower http://vms.ansible.com/ansible-tower-2.4.1-virtualbox.box
