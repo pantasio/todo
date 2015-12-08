@@ -9,8 +9,6 @@ https://vagrantcloud.com/ubuntu/boxes/trusty32/versions/14.04/providers/virtualb
 ###ubuntu / trusty64  
 website: https://vagrantcloud.com/ubuntu/boxes/trusty64  
 https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20151201.0.0/providers/virtualbox.box  
-                                                               |
-                                                       version / date    
 'vagrant init ubuntu/trusty64'  
 
 ###ubuntu-trusty-gui  
