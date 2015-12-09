@@ -1,0 +1,11 @@
+Install
+sudo add-apt-repository ppa:xorg-edgers/ppa
+sudo apt-get update
+sudo apt-get install nvidia-346 nvidia-settings
+
+Uninstall:
+udo apt-get remove nvidia*
+sudo add-apt-repository -r ppa:xorg-edgers/ppa
+sudo rm /etc/X11/xorg.conf
+sudo apt-get --reinstall install libgl1-mesa-glx
+sudo reboot

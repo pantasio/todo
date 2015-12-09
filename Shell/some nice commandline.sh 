@@ -1,0 +1,71 @@
+#!/bin/sh
+#
+
+############     Command 00    #############
+#<description>
+# Type in terminal:
+
+##############       END      ################
+
+#########################################################################
+
+############     Command 01    #############
+#Create multi folder
+#
+mkdir -p step-12/roles/apache/{tasks,handlers,files}
+##############       END      ################
+
+############     Command 02    #############
+#check all ssh key
+#
+ls -al ~/.ssh
+##############       END      ################
+
+############     Command 03    #############
+#Create ssh keygen
+# Type in terminal:
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+# We strongly suggest keeping the default settings as they are, so when you're prompted to "Enter a file in which to save the key", just press Enter to continue.
+# Write Name key you want
+#<terminal output>  Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+
+# You'll be asked to enter a passphrase.
+#<terminal output> Enter passphrase (empty for no passphrase): [Type a passphrase]
+#<terminal output> Enter same passphrase again: [Type passphrase again]
+##############       END      ################
+
+############     Command 04    #############
+#Adding or changing a passphrase
+# Type in terminal:
+ssh-keygen -p
+#
+# <terminal output># Start the SSH key creation process
+# <terminal output> Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]
+# <terminal output> Key has comment '/Users/you/.ssh/id_rsa'
+# <terminal output> Enter new passphrase (empty for no passphrase): [Type new passphrase]
+# <terminal output> Enter same passphrase again: [One more time for luck]
+# <terminal output> Your identification has been saved with the new passphrase.
+##############       END      ################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

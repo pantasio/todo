@@ -1,0 +1,58 @@
+##################################################
+####
+DebOps
+	Github: 	https://github.com/debops
+	Website: 	http://docs.debops.org/en/latest/index.html
+
+
+##################################################
+####
+Ansible-bootstrap
+	Github: 	https://github.com/debops/ansible-bootstrap
+	Website: 	http://docs.debops.org/en/latest/ansible/roles/ansible-bootstrap/docs/index.html
+
+
+##################################################
+####
+Ansible Role: Drush
+	Github: 	https://github.com/geerlingguy/ansible-role-drush
+
+
+##################################################
+####
+Ansible Role: PHP
+	Github: 	https://github.com/geerlingguy/ansible-role-php
+
+
+##################################################
+####
+Ansible Role: MySQL
+	Github: 	https://github.com/geerlingguy/ansible-role-mysql
+
+
+##################################################
+####
+Ansible Role: Git
+	Github: 	https://github.com/geerlingguy/ansible-role-git
+
+
+##################################################
+####
+ANXS - PostgreSQL
+	Github: 	https://github.com/ANXS/postgresql
+
+
+##################################################
+####
+Stouts.backup
+	Github: 			https://github.com/Stouts/Stouts.backup
+	Galaxy.ansible: 	https://galaxy.ansible.com/detail#/role/945
+
+
+##################################################
+####
+mysql-ansible
+	Github: 			https://github.com/radamanth/mysql-ansible
+	Galaxy.ansible: 	https://galaxy.ansible.com/detail#/role/3558
+
+

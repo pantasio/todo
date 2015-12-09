@@ -1,5 +1,5 @@
 Simple Screen Recorder update brings support for current Ubuntu/Linux Mint Versions
 
-		sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
-		sudo apt-get update
-		sudo apt-get install simplescreenrecorder
+		sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
+		sudo apt-get update -y
+		sudo apt-get install simplescreenrecorder -y
