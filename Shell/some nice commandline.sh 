@@ -3,6 +3,8 @@
 
 ############     Command 00    #############
 #<description>
+# 
+# 
 # Type in terminal:
 
 ##############       END      ################
@@ -48,7 +50,13 @@ ssh-keygen -p
 # <terminal output> Your identification has been saved with the new passphrase.
 ##############       END      ################
 
-
+############     Command 05    #############
+#<description>
+# http://askubuntu.com/questions/194651/why-use-apt-get-upgrade-instead-of-apt-get-dist-upgrade
+# Chua thu nghiem
+# Type in terminal:
+sudo apt-get update && time sudo apt-get dist-upgrade
+##############       END      ################
 
 
 

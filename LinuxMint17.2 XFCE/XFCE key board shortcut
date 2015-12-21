@@ -1,4 +1,127 @@
 XFCE key board shortcut
+See picture: http://i.stack.imgur.com/krD8y.jpg
+Or see in .icon
 
-Ctrl+Alt+arrow letf/right               : Move workspace left/right
+
+Ctrl+Alt+arrow letf/right               							: Move workspace left/right
 Ctrl+Alt+ Number pad 										: Move current app to workspace number ?
+
+For 11.10 and 12.10
+
+Control-Alt-D 												: Show desktop
+
+For 12.04 ,13.04 and 14.04
+
+Control-Super-D 											works for me
+
+
+
+Keyboard Shortcuts
+
+Holding down the Super key will get you a keyboard overlay that documents most of these.
+Launcher
+
+    Hold Super - Invoke the Launcher and display the shorcuts
+
+    Hold Super, then press 1 or 2 or 3 and so on until 0 to open or focus an application. The number corresponds to the location of the icon on the launcher from top to bottom.
+        Adding Shift will open a new instance of the application if it's already open.
+        Holding the key is also useful when you want to get to the Launcher but do not want to invoke the Dash.
+    Super-T - Open the rubbish bin/trash can.
+    Alt-F1 - Put keyboard focus on the Launcher, use arrow keys to navigate, Enter launches an application, Right arrow exposes the quicklists if an application has them.
+    Ctrl-Alt-T - Launch a terminal window.
+
+Dash
+
+    Tap Alt - Opens the HUD
+    Hold Alt - Reveals application menu
+
+    Tap Super - Opens the Dash. The open signal is sent when you let go of the key, not when you push it down, so if it feels slow just let go of the key earlier.
+
+    Over an item, you can hit the Secondary key (commonly to the left of the right Ctrl) to see a preview of the item, as you can do with a secondary click over it.
+
+    Ubuntu 11.10
+        Tab Move to the next lens (When the dash is open)
+        Shift-Tab Move to the previous lens (when the dash is open)
+
+    Ubuntu 12.04, 12.10, 13.10, 14.04, 15.04
+        Ctrl-Tab Move to the next lens (When the dash is open)
+        Ctrl-Shift-Tab Move to the previous lens (when the dash is open)
+
+    Alt-F2 - Invoke the Dash in a "special mode" to run a command. Typing in a Folder Name will find that folder in Nautilus, you can also use ~ as a shortcut in the field.
+    The Dash opens with focus on the search box to find applications and files. Using the arrow keys will navigate the results, use Enter to launch. Hitting Enter twice in rapid succession after a search term will automatically launch the first match in a search, even if it's still ongoing. (Basically a dash version of "I'm feeling lucky").
+    Super-A - Open Applications lens
+    Super-F - Open Files & Folders lens
+    Super-M - Open the music lens
+    Super-V - Open the video lens
+
+Panel
+
+    F10 (11.10 and earlier) / Alt-F10 (12.04 and earlier) - Open the first menu on the panel, use the arrows keys to "scrub" across the menus. (There is no shortcut for the session menu, so hitting F10 and left arrow is a quick way to get there)
+    Press Esc to close the menus without choosing anything.
+
+Window Management
+
+    Ctrl-Super-D - Show desktop; hitting it again restores the windows.
+    Super-W - Spread mode, zoom out on all windows in all workspaces, in 12.04 and 12.10 it zooms out on the windows in the current workspace.
+    Super-D - Minimize all windows; hitting it again restores them.
+    Alt-Space - Opens the window's accessibility menu.
+    Alt-Tab - Switch to other applications, you can hold Alt down and then hit tab to switch to the next application.
+    Alt-` - Switch between an application's windows. Hitting this combo when you're already focused on an application will automatically switch only between the windows for that application. The ` key on US layouts, but Unity will use whichever key is above your Tab key. (More info) (Video)
+    Ctrl-Super-↑ - Maximize the current window
+    Ctrl-Super-↓ - Restore/Minimize the current window (seems to be buggy at the moment)
+    Ctrl-Super-← - Maximize current window to the left
+    Ctrl-Super-→ - Maximize current window to the right
+
+Window Placement
+
+If you cycle through the same key Unity will cycle through different placement widths, so experiment by hitting the numkey multiple times, for example Ctrl-Alt-numpad 5 5 5:
+
+    Ctrl-Alt-Numpad 7 - Place window in top left corner of screen.
+    Ctrl-Alt-Numpad 8 - Place window in top half of screen.
+    Ctrl-Alt-Numpad 9 - Place window in top right corner of screen.
+    Ctrl-Alt-Numpad 5 - Center/Maximize the window in the middle of the screen. In 12.04 this toggles between maximize and restore state
+    Ctrl-Alt-Numpad 1 - Place window in the bottom left corner of the screen.
+    Ctrl-Alt-Numpad 2 - Place window in the bottom half of the screen.
+    Ctrl-Alt-Numpad 3 - Place window in the bottom right corner of the screen.
+    Ctrl-Alt-Numpad 0 - Minimize the current window (Ubuntu 12.04.1).
+
+Workspace Management
+
+    Super-S - Expo mode (for everything), zooms out on all the workspaces and lets you manage windows.
+    Shift-Alt-↑ - Expo mode for all windows in the current workspace only.
+    Ctrl-Alt-← / → / ↑ / ↓ - (11.10+) - Change to a new workspace.
+    Ctrl-Alt-Shift-← / → / ↑ / ↓ - Place window to a new workspace.
+    Ctrl-Alt-L - Lock the screen.
+
+Screenshots
+
+    PrtScn - Take a screenshot of the current workspace
+    Alt-PrtScn - Take a screenshot of the current window
+    Shift-PrtScn - Take a screenshot of a region traced by the mouse (shows crosshairs)
+
+System
+
+    Ctrl-Alt-Del - Logout
+
+Mouse Tricks
+Launcher
+
+    Clicking and holding an icon and then dragging it around will allow you to reorder it on the launcher. You can also drag it off to the right of the launcher to move it around. Note that you need to make an explicit movement to the right to move the icon off the launcher before you can move it around.
+    Dragging and Dropping an icon into the trash can will remove it from the Launcher. The program itself will remain installed and accessible through the dash.
+    Scrolling the mouse wheel while over the Launcher scrolls the icons if you have too many and need to move around quickly.
+
+Window Management
+
+    Maximizing - Dragging a window to the top panel, or double-clicking a window's titlebar, or Alt-F10 (11.10 and earlier), will maximize it.
+    Restore - There are two ways to restore, or unmaximize, the topmost maximized window of the current monitor for this workspace (not using the window controls)
+        Double clicking on the top panel (but not in the application's menu)
+        Dragging the top panel down.
+    Middle click on Maximize - Maximize Window Vertically.
+    Right click on Maximize - Maximize Window Horizontally
+    Focus the topmost maximized window of the current monitor for this workspace: Left click on the top panel (but not in the application's menu)
+    Tiling - Dragging a Window to the left/right border will auto tile it to that side of the screen.
+    Middle click on an application's launcher icon - Open a new instance of the application in a new window. If the application isn't running it will just open it normally.
+    Middle click on the top panel or window title bar (but not the menu) - send the current window behind all other windows.
+    Alt-Left drag inside a window - move the window
+    Alt-Middle drag inside a window close to its border - resize the window
+    Alt-Right click inside a window - window accessibility menu
