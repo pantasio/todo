@@ -1,0 +1,46 @@
+Vim tutorial
+
+cac ki tu can fai nho
+i 				4i<noun> go 4 tu giong nhau
+hjkl                 	10k     8j     
+w       	5w
+b		8b
+
+s - Delete character under cursor and enter insert mode
+S - Delete line and begin insert at beginning of same line
+C - Delete from cursor to end of line and begin insert
+a - Enter insert mode _after_ cursor
+A - Enter insert mode at the end of the line
+o - Enter insert mode on the next line
+O - enter insert mode on the above line
+$ - move to the last character of line
+^ - ki dau tien khong phai khoang trang cua mot dong
+
+
+w - Forward to the beginning of next word
+W - Forward to the beginning of the next WORD
+b - Backward to the next beginning of a word
+B - Backward to the next beginning of a WORD
+e - Forward to the next end of word
+E - Forward to the next end of WORD
+gg -begin of file
+G - end of file
+v - visual selection
+
+Searching
+/  - Forward
+n  - Next result, forward
+N  - Next result, backward
+
+u - undo stuff
+ctrl-R - redo stuff
+
+
+Copy/Paste
+
+y - Yank. Example: yw (yank word)
+p - paste after cursor
+P - paste before cursor
+
+vim: set syn=mkd :
+
