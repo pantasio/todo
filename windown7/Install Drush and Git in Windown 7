@@ -31,7 +31,7 @@ Now, we're ready to install Drush with composer. It's pretty simple. In fact, it
 
     In the Git Bash, type "composer global require drush/drush:7.*" and press Enter.
 
-This will install Drush to "C:/Users/[user name]/AppData/Roaming/Composer/vendor/drush/drush"
+This will install Drush to "C:/Users/[user name]/AppData/Roaming/Composer/vendor/drush/drush;C:\xampp\mysql\bin\"
 
 We can't run it from anywhere else though, so we need to add that path to our Environment Variables.
 Adding Our Drush Folder to the System Path
