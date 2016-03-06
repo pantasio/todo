@@ -1,0 +1,6 @@
+check VGA driver
+$lshw -class display | grep "driver"
+
+WARNING: you should run this program as super-user.
+       configuration: driver=nvidia latency=0
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user.
