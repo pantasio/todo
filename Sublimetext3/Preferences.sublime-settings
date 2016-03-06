@@ -1,6 +1,9 @@
 //// All source code in here
 //// https://drive.google.com/folderview?id=0B-niOEXlThbFR1RWajJkMzgwM0U&usp=sharing
 
+//// Gõ Tiêng Việt nhấn F2 sao cho VN_IME = On 
+
+
 //// Save this file at location
 //// Linux ~/.config/sublime-text-3/Packages/User/
 {
@@ -62,5 +65,6 @@
 	"tab_size": 2,
 	"tabs_small": true,
 	"theme": "Material-Theme.sublime-theme",
-	"word_wrap": true
+	"word_wrap": true,
+	"telex": true
 }
