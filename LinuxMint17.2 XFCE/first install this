@@ -4,6 +4,11 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt-get update -y
 sudo apt-get install simplescreenrecorder sublime-text-installer -y
 
+Install Git
+$ sudo add-apt-repository ppa:git-core/ppa -y
+$ sudo apt-get update
+$ sudo apt-get install git -y
+
 
 sudo add-apt-repository ppa:indicator-multiload/stable-daily -y
 sudo add-apt-repository ppa:noobslab/icons -y
@@ -76,6 +81,12 @@ chsh -s /usr/bin/fish
 Dùng básh lại làm mặc định:
  
 chsh -s /bin/bash 
+
+Shotcut video editor:
+ 
+sudo add-apt-repository ppa:haraldhv/shotcut -y
+sudo apt-get update
+sudo apt-get install shotcut -y
 
 
 
