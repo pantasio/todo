@@ -67,12 +67,15 @@ Multi-Load Indicator 	http://www.noobslab.com/2014/08/useful-panel-indicators-co
 
 
 
-
-
-
-
 http://ubuntuhandbook.org/index.php/2015/11/flatabulous-flat-theme-ubuntu/
 
+Install fish làm mặc định 
+
+chsh -s /usr/bin/fish
+
+Dùng básh lại làm mặc định:
+ 
+chsh -s /bin/bash 
 
 
 
