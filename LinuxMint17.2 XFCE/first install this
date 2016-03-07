@@ -9,6 +9,11 @@ $ sudo add-apt-repository ppa:git-core/ppa -y
 $ sudo apt-get update
 $ sudo apt-get install git -y
 
+Install screenkey
+website http://www.thregr.org/~wavexx/software/screenkey/
+
+Apply sublime-text 3 theme
+https://drive.google.com/open?id=0B-niOEXlThbFR1RWajJkMzgwM0U
 
 sudo add-apt-repository ppa:indicator-multiload/stable-daily -y
 sudo add-apt-repository ppa:noobslab/icons -y
