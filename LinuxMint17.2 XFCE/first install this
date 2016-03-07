@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# chỉnh font treminal la Droid Sán Môno 12
 sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt-get update -y
