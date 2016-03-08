@@ -96,4 +96,17 @@ sudo apt-get update
 sudo apt-get install shotcut -y
 
 
+Install OBS 
+sudo apt-add-repository ppa:kirillshkrogalev/ffmpeg-next -y
+sudo apt-add-repository ppa:obsproject/obs-studio -y
+sudo apt-get update -y
+sudo apt-get install ffmpeg obs-studio -y
+
+sudo apt-get install stream -y
+
+
+
+
+
+
 
