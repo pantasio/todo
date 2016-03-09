@@ -1,0 +1,103 @@
+Cai dat Tmux, Vi và powerline
+
+Download 
+ https://github.com/pantasio/dotfiles
+
+
+copy file vao folder ~/
+ 	.tmux-powerlinerc
+ 	.tmux.conf
+ 	.vimrc
+
+
+Install Vim Tmux Powerline (Ubuntu 14.04 Trusty)
+website: https://github.com/tiev/tiev/wiki/Install-Vim---Tmux---Powerline-%28Ubuntu-14.04-Trusty%29
+
+Copy folder .config/tmux-powerline --> ~/.config/
+Copy folder .vim   --> ~/
+
+	Install plugin
+
+		Install python-pip
+
+###################################################
+#		$ sudo apt-get install python-pip
+#
+#		### Upgrade Pip
+#		$ sudo pip install -U pip
+#
+#
+###################################################
+
+Install for all System wide:
+
+In terminal run:
+###################################################
+#
+#		su -c 'pip install git+git://github.com/Lokaltog/powerline'
+#
+###################################################
+
+Installing Powerline Fonts in Linux
+System wide:
+
+Run the following commands:
+
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+
+Then you need to move the font to your fonts directory, /usr/share/fonts/ or /usr/local/share/fonts as follows
+
+sudo mv PowerlineSymbols.otf /usr/share/fonts/
+
+Next, you need to update your system’s font cache as follows.
+
+sudo fc-cache -vf /usr/share/fonts/
+
+Now install the fontconfig file.
+
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+
+Setting Powerline for Bash Shell and Vim Statuslines
+
+In this section we shall look at configuring Powerline for Fish shell and vim editor. First make your terminal to support 256color by adding the following line to ~/.bashrc file as follows.
+
+export TERM=”screen-256color” 
+
+Enable Powerline on Fish Shell
+
+To enable Powerline in Fish shell by default, you need to add the following snippet to your ~/.bashrc ????? file.
+
+First get the location of installed powerline using following command.
+
+# pip show powerline-status
+
+Name: powerline-status
+Version: 2.2.dev9999-git.aa33599e3fb363ab7f2744ce95b7c6465eef7f08
+Location: /usr/local/lib/python2.7/dist-packages
+Requires: 
+
+Once you know the actual location of powerline, make sure to replace the location in the below line as per your system suggested.
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+
+
+
+
+
+
+
+Enable Powerline for Vim
+
+If vim is your favorite editor, luckily there is a powerful plugin for vim, too. To enable this plugin, add these lines to ~/.vimrc file.
+
+
+
+set  rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
+
+
