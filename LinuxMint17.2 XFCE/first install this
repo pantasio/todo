@@ -103,6 +103,9 @@ sudo apt-get update -y
 sudo apt-get install ffmpeg obs-studio -y
 
 sudo apt-get install stream -y
+sudo apt-get install guake -y
+
+install mpsyt
 
 
 
