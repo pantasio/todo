@@ -1,3 +1,4 @@
+//http://vi-gaming.com/threads/huong-dan-su-dung-console-trong-dota-2-rip-25-05-2016.1087/#post-10567
 //-novid -console +exec autoexec.cfg  
 // Music for dota   
 // https://soundcloud.com/linh-b-m/sets/stream-onl  
