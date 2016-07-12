@@ -1,10 +1,10 @@
-#2 Xây dựng ứng dụng Android và IOS với DreamWeaver
+### Xây dựng ứng dụng Android và IOS với DreamWeaver
 http://www.shopitc-vietnam.com/giao-trinh-video/300-xay-dung-ung-dung-android-va-ios-voi-dreamweaver.html
   
-#2 Giáo trình video học Excel 2010 cơ bản 
+### Giáo trình video học Excel 2010 cơ bản 
 http://www.shopitc-vietnam.com/giao-trinh-video/310-giao-trinh-video-hoc-excel-2010-co-ban.html
 
-#2 Giáo trình video Chuyên sâu về Privot Table trong Excel 2010
+### Giáo trình video Chuyên sâu về Privot Table trong Excel 2010
 http://www.shopitc-vietnam.com/giao-trinh-video/311-privottable-chuyen-sau-excel-2010.html
 
 Thông tin mô tả :
@@ -13,7 +13,7 @@ Thời lượng khóa học : 3h 43 phút.
 Trình độ : Intermediate.
 
 
-#2 Giáo trình video học Adobe Dreamweaver CS6 cơ bản
+### Giáo trình video học Adobe Dreamweaver CS6 cơ bản
 http://www.shopitc-vietnam.com/giao-trinh-video/299-giao-trinh-video-hoc-adobe-dreamweaver-cs6-co-ban.html
 
 Thông tin mô tả :
@@ -21,7 +21,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 9h 24phút.
 Trình độ : Beginer.
 
-.#2 Giáo trình video Excel 2010 - định dạng bảng tính nâng cao
+### Giáo trình video Excel 2010 - định dạng bảng tính nâng cao
 http://www.shopitc-vietnam.com/giao-trinh-video/295-giao-trinh-video-excel-2010-dinh-dang-bang-tinh-nang-cao.html
 
 Thông tin mô tả :
@@ -29,7 +29,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 3h 2 phút.
 Trình độ : Intermediate.
 
-#2 Giáo trình video hiệu quả của HTML trong Email và Newsletters
+### Giáo trình video hiệu quả của HTML trong Email và Newsletters
 
 
 Thông tin mô tả :
@@ -37,7 +37,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 2h 24 phút.
 Trình độ : không phân biệt.
 
-#2 Giáo trình Video lập trình Python 3 Cơ bản
+### Giáo trình Video lập trình Python 3 Cơ bản
 
 
 Thông tin mô tả :
@@ -45,7 +45,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 6h 36 phút
 Trình độ : Beginer.
 
-#2 Giáo trình Video Adobe After Effects CS6 cơ bản
+### Giáo trình Video Adobe After Effects CS6 cơ bản
 http://www.shopitc-vietnam.com/giao-trinh-video/261-giao-trinh-video-adobe-after-effects-cs6-co-ban.html
 
 Thông tin mô tả :
@@ -53,7 +53,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 8h 41 phút
 Trình độ : Beginer.
 
-#2 Giáo trình video thủ thuật nâng cao với Google Adwords
+### Giáo trình video thủ thuật nâng cao với Google Adwords
 http://www.shopitc-vietnam.com/giao-trinh-video/260-thu-thuat-nang-cao-voi-google-adwords.html
 
 Thông tin mô tả :
@@ -61,7 +61,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 46 phút 54 giây
 Trình độ : Nâng cao.
 
-#2 Giáo trình Video phát triển ứng dụng Android với Java [cơ bản]
+### Giáo trình Video phát triển ứng dụng Android với Java [cơ bản]
 http://www.shopitc-vietnam.com/giao-trinh-video/259-giao-trinh-video-phat-trien-ung-dung-android-voi-java.html
 
 Thông tin mô tả :
@@ -174,7 +174,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 8h với 29 bài học
 Trình độ : Beginer.
 
-#2 Giáo trình Video thiết kế web với SASS và COMPASS
+### Giáo trình Video thiết kế web với SASS và COMPASS
 http://www.shopitc-vietnam.com/giao-trinh-video/192-giao-trinh-video-thiet-ke-web-voi-sass-va-compass.html
 
 Thông tin mô tả :
@@ -182,7 +182,7 @@ Thông tin mô tả :
 Thời lượng khóa học : 19 bài học với 2,2 giờ 
 Trình độ : trung cấp.
 
-#2 Giáo trình Video javascript : Viết modular Javascript
+### Giáo trình Video javascript : Viết modular Javascript
 http://www.shopitc-vietnam.com/giao-trinh-video/191-giao-trinh-video-javascript-viet-modular.html
 
 Thông tin mô tả :
