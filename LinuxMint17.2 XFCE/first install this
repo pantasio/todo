@@ -32,12 +32,15 @@ sudo apt-get install software-properties-common -y
 sudo apt-get install indicator-multiload -y
 sudo apt-get install ultra-flat-icons ultra-flat-icons-green ultra-flat-icons-orange -y
 sudo apt-get install vivacious-colors -y
+## download manager
 sudo apt-get install xdman -y
 sudo apt-get install tmux -y
 sudo apt-get install ibus -y
 sudo apt-get install ibus-unikey -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install virtualbox virtualbox-dkms vagrant virtualbox-qt -y
+sudo apt-get install vlc
+## CLI download giong wget
 sudo apt-get install aria2 -y
 
 
