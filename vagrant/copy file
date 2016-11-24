@@ -1,1 +1,5 @@
+from vagrant >> host
 scp -P 2222 vagrant@127.0.0.1:/home/vagrant/all_databases.sql .
+
+from Host >> vagrant
+scp -P 2200 ./all_databases.sql vagrant@127.0.0.1:/home/vagrant/
