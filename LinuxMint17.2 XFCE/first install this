@@ -1,18 +1,21 @@
 #!/bin/sh
 
 # chỉnh font treminal la Droid Sán Môno 12
-sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
-sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
-sudo apt-get update -y
-sudo apt-get install simplescreenrecorder sublime-text-installer -y
-
-Install Git
+$ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
+$ sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 $ sudo add-apt-repository ppa:git-core/ppa -y
-$ sudo apt-get update
-$ sudo apt-get install git -y
+$ sudo apt-get update -y
+$ sudo apt-get install git simplescreenrecorder sublime-text-installer -y
+
+
+Install Disk Usage Analyzer
+$sudo apt-get install gksu
+When the installation is finished, type the following at the prompt and press Enter to open Disk Usage Analyzer.
+$gksu baobab
 
 Install screenkey
 website http://www.thregr.org/~wavexx/software/screenkey/
+$sudo apt-get install python-gtk2 python-setuptools python-setuptools-git python-distutils-extra
 
 Apply sublime-text 3 theme
 https://drive.google.com/open?id=0B-niOEXlThbFR1RWajJkMzgwM0U
