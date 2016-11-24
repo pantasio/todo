@@ -13,3 +13,6 @@ mysql -u root -p < file.sql
 
 With easyengine need to restart stack
 sudo ee stack restart
+
+change password mysql root 
+sudo nano /etc/mysql/conf.d/my.cnf
