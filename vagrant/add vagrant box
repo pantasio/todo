@@ -1,0 +1,2 @@
+vagrant box add trusty64 file:///d:/path/to/file.box
+vagrant box add trusty64 ./path/to/file.box
