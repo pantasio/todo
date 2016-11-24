@@ -1,1 +1,15 @@
 mysqldump -u root -p --all-databases > all_databases.sql
+
+
+
+#backup all databases in one file (eventually add the option --add-locks):
+mysqldump -u root -p -–all-databases > file.sql
+
+#backup all databases in one gzipped file:
+mysqldump -u root -p -–all-databases | gzip > file.sql.gz
+
+#restore all databases:
+mysql -u root -p < file.sql 
+
+With easyengine need to restart stack
+sudo ee stack restart
