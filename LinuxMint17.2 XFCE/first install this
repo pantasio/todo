@@ -24,7 +24,6 @@ sudo add-apt-repository ppa:indicator-multiload/stable-daily -y
 sudo add-apt-repository ppa:noobslab/icons -y
 sudo add-apt-repository ppa:ravefinity-project/ppa -y
 sudo add-apt-repository ppa:noobslab/apps -y
-sudo apt-add-repository ppa:ansible/ansible  -y
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'	
 
@@ -77,6 +76,22 @@ Installed Version: 1.7.4
 Latest Version: 1.7.3
  
 You're running an up-to-date version of Vagrant!
+
+## INSTALL ansible
+
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible
+
+ERROR
+The following packages have unmet dependencies:
+ ansible : Depends: python-setuptools but it is not going to be installed
+E: Unable to correct problems, you have held broken packages.
+FIX
+$sudo apt-get install python-pkg-resources=3.3-1ubuntu1
+$sudo apt-get install python-setuptools
+
 
 ## vagrant box
 ## Ubuntu
