@@ -86,22 +86,18 @@ vboxdrv.sh: Starting VirtualBox services.
 
 =====================================================================
 
-
-
-
-
 # Install vagrant 1.7.4
 
 Our next step is to download the latest version of both software and install it in Ubuntu 15.04. Which means we need to download DEB packages. Let's start with Vagrant. Also we need to download the corresponding checksum file as well. I'm using Aria2 instead of Wget to speed up downloading as Aria2 supports multiple simultaneous connections.
-$ aria2c -x 4 https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
-$ wget --content-disposition https://dl.bintray.com/mitchellh/vagrant/1.7.4_SHA256SUMS?direct
+$ aria2c -x 4 https://releases.hashicorp.com/vagrant/1.9.0/vagrant_1.9.0_x86_64.deb
+$ wget --content-disposition https://releases.hashicorp.com/vagrant/1.9.0/vagrant_1.9.0_SHA256SUMS
 
 Before we install or upgrade Vagrant, verify the our downloaded DEB package against the checksum file. Remember to read the Changelog as well, just in case, if there are any important items relevant to our upgrade or installation.
-$ sha256sum -c 1.7.4_SHA256SUMS 2>&1 | grep OK                                                                                          
-vagrant_1.7.4_x86_64.deb: OK
+$ sha256sum -c vagrant_1.9.0_SHA256SUMS 2>&1 | grep OK                                                                                          
+vagrant_1.9.0_x86_64.deb: OK
 
 Upgrade our Vagrant installation.
-$ sudo dpkg -i vagrant_1.7.4_x86_64.deb 
+$ sudo dpkg -i vagrant_1.9.0_x86_64.deb
 ......
 Preparing to unpack vagrant_1.7.4_x86_64.deb ...
 Unpacking vagrant (1:1.7.4) over (1:1.7.3) ...
@@ -109,17 +105,20 @@ Setting up vagrant (1:1.7.4) ...
 
 Finally, verify our installation. See the inaccurate reporting of latest version against the installed version. Hence, to get the up-to-date version, is best to check Vagrant's download page.
 $ vagrant version
-Installed Version: 1.7.4
-Latest Version: 1.7.3
+Installed Version: 1.9.0
+Latest Version: 1.9.0
+
  
 You're running an up-to-date version of Vagrant!
+
+=====================================================================
 
 ## INSTALL ansible
 
 $ sudo apt-get install software-properties-common
-$ sudo apt-add-repository ppa:ansible/ansible
-$ sudo apt-get update
-$ sudo apt-get install ansible
+$ sudo apt-add-repository ppa:ansible/ansible -y
+$ sudo apt-get update -y
+$ sudo apt-get install ansible -y
 
 ERROR
 The following packages have unmet dependencies:
