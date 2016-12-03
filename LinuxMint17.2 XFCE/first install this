@@ -49,8 +49,13 @@ rm vagrant_1.8.7_x86_64.deb
 
 
 ## CLI download giong wget
-sudo apt-get install aria2 -y
+$ sudo apt-get install aria2 -y
+$ aria2c --version
+aria2 version 1.18.1
+Copyright (C) 2006, 2013 Tatsuhiro Tsujikawa
 
+
+=====================================================================
 #Install VirtualBox 5.1
 
 sudo nano /etc/apt/sources.list
@@ -69,6 +74,20 @@ $ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key
 
 $ sudo apt-get update
 $ sudo apt-get install virtualbox-5.1
+
+##Confirm our installed VirtualBox version.
+$ vboxmanage --version
+5.1.10r112026
+
+Lastly, if there are any Linux kernel upgrade, you may need to rebuild vboxdrv kernel module by running this command.
+$ sudo /etc/init.d/vboxdrv setup
+vboxdrv.sh: Building VirtualBox kernel modules.
+vboxdrv.sh: Starting VirtualBox services.
+
+=====================================================================
+
+
+
 
 
 # Install vagrant 1.7.4
