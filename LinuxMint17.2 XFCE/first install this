@@ -63,14 +63,6 @@ deb http://download.virtualbox.org/virtualbox/debian wily contrib
 For Ubuntu 14.04 ("Trusty")
 deb http://download.virtualbox.org/virtualbox/debian trusty contrib
 
-For Ubuntu 12.04 LTS ("Precise Pangolin")
-deb http://download.virtualbox.org/virtualbox/debian precise contrib
-
-For Debian 8 ("Jessie") 
-deb http://download.virtualbox.org/virtualbox/debian jessie contrib
-
-For Debian 7 ("Wheezy")
-deb http://download.virtualbox.org/virtualbox/debian wheezy contrib
 
 $ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 $ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
