@@ -1,11 +1,24 @@
 #!/bin/sh
 
+echo "Installation starts ..."
 # chỉnh font treminal la Droid Sán Môno 12
-$ sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
-$ sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
-$ sudo add-apt-repository ppa:git-core/ppa -y
-$ sudo apt-get update -y
-$ sudo apt-get install git simplescreenrecorder sublime-text-installer -y
+
+#gnome-tweak-tool, ubuntu-tweak
+yes | sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get -y update
+sudo apt-get -yV install ubuntu-tweak
+sudo apt-get -yV install unity-tweak-tool
+sudo apt-get -yV install gnome-tweak-tool
+
+
+
+
+
+sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder -y
+sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update -y
+sudo apt-get install git simplescreenrecorder sublime-text-installer -y
 
 
 Install Disk Usage Analyzer
