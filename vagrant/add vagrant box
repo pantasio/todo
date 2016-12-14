@@ -1,2 +1,8 @@
 vagrant box add trusty64 file:///d:/path/to/file.box
 vagrant box add trusty64 ./path/to/file.box
+
+
+
+
+Ubuntu desktop
+https://atlas.hashicorp.com/box-cutter/boxes/ubuntu1404-desktop/versions/2.0.26/providers/virtualbox.box
