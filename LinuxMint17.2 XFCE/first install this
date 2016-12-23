@@ -179,13 +179,30 @@ Multi-Load Indicator 	http://www.noobslab.com/2014/08/useful-panel-indicators-co
 
 http://ubuntuhandbook.org/index.php/2015/11/flatabulous-flat-theme-ubuntu/
 
-Install fish làm mặc định 
+##################################################################
+Install Fish shell
 
+sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get update
+sudo apt-get install fish
+
+Install fish làm mặc định 
 chsh -s /usr/bin/fish
 
 Dùng básh lại làm mặc định:
- 
 chsh -s /bin/bash 
+
+Installing Oh My Fish:
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+
+Install fisherman: A plugin manager for fish.
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
+Install bobthefish theme
+fisher omf/theme-bobthefish
+
+###################################################################
+
 
 Shotcut video editor:
  
