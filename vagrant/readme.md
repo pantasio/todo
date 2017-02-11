@@ -9,6 +9,12 @@ vagrant init hashicorp/precise32
 https://vagrantcloud.com/ubuntu/boxes/trusty32/versions/14.04/providers/virtualbox.box
 vagrant init ubuntu/trusty32
 
+*ubuntu / trusty64
+Info: https://atlas.hashicorp.com/ubuntu/boxes/trusty64
+link: 
+https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20170202.1.0
+mannual download
+https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20170202.1.0/providers/virtualbox.box
 
 
 # (GitHub-Flavored) Markdown Editor
