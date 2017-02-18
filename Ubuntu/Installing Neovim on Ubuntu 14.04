@@ -1,5 +1,5 @@
 sudo apt-get install -yqqu software-properties-common
 sudo apt-get install -yqqu python-software-properties
-sudo add-apt-repository -yqqu ppa:neovim-ppa/unstable
+sudo add-apt-repository -yu ppa:neovim-ppa/unstable
 sudo apt-get -yqqu update
 sudo apt-get install -yqqu neovim
