@@ -1,0 +1,9 @@
+Default Ubuntu (with LightDM)
+  sudo restart lightdm  
+Gnome (with GDM)
+  sudo restart gdm
+KDE (with KDM)
+  sudo restart kdm
+Note: From 12.10 to 15.04, Kubuntu also uses LightDM.
+For MDM (e.g. for Mint Cinnamon)
+  sudo restart mdm
