@@ -108,3 +108,11 @@ var test = function this_is(){
 > here is blockquote
 
 [Relative image link](afu.png)
+
+Syntax highlighting
+
+You can define the language to be used for syntax highlighting by adding the name on the opening tag. Example:+
+
+```js
+var a = {};
+```
