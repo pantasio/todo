@@ -6,9 +6,7 @@ echo "Installation starts ..."
 #gnome-tweak-tool, ubuntu-tweak
 yes | sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get -y update
-sudo apt-get -yV install ubuntu-tweak
-sudo apt-get -yV install unity-tweak-tool
-sudo apt-get -yV install gnome-tweak-tool
+sudo apt-get -yV install ubuntu-tweak unity-tweak-tool gnome-tweak-tool
 
 #Install apt-fast
 sudo add-apt-repository ppa:saiarcot895/myppa
