@@ -179,11 +179,14 @@ sudo apt-add-repository ppa:fish-shell/release-2 -y
 sudo apt-get update
 sudo apt-get install fish
 
-Install fish làm mặc định 
+#Install fish làm mặc định 
 chsh -s /usr/bin/fish
 
-Dùng básh lại làm mặc định:
+#Dùng básh lại làm mặc định:
 chsh -s /bin/bash 
+
+#Logout and login to take change
+sudo service gdm restart
 
 Installing Oh My Fish:
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
