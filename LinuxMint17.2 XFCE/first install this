@@ -142,7 +142,6 @@ You're running an up-to-date version of Vagrant!
 
 ## INSTALL ansible
 
-$ sudo apt-get install software-properties-common
 $ sudo apt-add-repository ppa:ansible/ansible -y
 $ sudo apt-get update -y
 $ sudo apt-get install ansible -y
@@ -176,7 +175,7 @@ http://ubuntuhandbook.org/index.php/2015/11/flatabulous-flat-theme-ubuntu/
 ##################################################################
 Install Fish shell
 
-sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-add-repository ppa:fish-shell/release-2 -y
 sudo apt-get update
 sudo apt-get install fish
 
